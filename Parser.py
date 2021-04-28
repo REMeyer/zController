@@ -114,21 +114,21 @@ class zCFFftPsf():
     '''
     if self._parseFileHeader():
       if self.verbose:
-        print "Successfully parsed ZEMAX FFT PSF output file header."
+        print("Successfully parsed ZEMAX FFT PSF output file header.")
       if self.debug:
-        print self.header
+        print(self.header)
       if self._parseFileData(self.header['IGRID_SIZE']):
         if self.debug:
           plt.imshow(self.data)
           plt.colorbar()
           plt.show()
         if self.verbose:
-          print "Successfully parsed ZEMAX FFT PSF output file data."
+          print("Successfully parsed ZEMAX FFT PSF output file data.")
       else:
-        print "Failed to parse ZEMAX FFT PSF output file data."
+        print("Failed to parse ZEMAX FFT PSF output file data.")
         return False
     else:
-      print "Failed to read ZEMAX FFT PSF output file header." 
+      print("Failed to read ZEMAX FFT PSF output file header.")
       return False
     return True 
  
@@ -168,11 +168,11 @@ class zCSystemData():
     '''
     if self._parseFileHeader():
       if self.verbose:
-        print "Successfully parsed ZEMAX system data file header."
+        print("Successfully parsed ZEMAX system data file header.")
       if self.debug:
-        print self.header
+        print(self.header)
     else:
-      print "Failed to parse ZEMAX system data file header."
+      print("Failed to parse ZEMAX system data file header.")
       return False
     
 class zCWFE():
@@ -257,20 +257,20 @@ class zCWFE():
     '''
     if self._parseFileHeader():
       if self.verbose:
-        print "Successfully parsed ZEMAX WFE output file header."
+        print("Successfully parsed ZEMAX WFE output file header.")
       if self.debug:
-        print self.header
+        print(self.header)
       if self._parseFileData(self.header['SAMPLING']):
         if self.debug:
           plt.imshow(self.data)
           plt.colorbar()
           plt.show()
         if self.verbose:
-          print "Successfully parsed ZEMAX WFE output file data."
+          print("Successfully parsed ZEMAX WFE output file data.")
       else:
-        print "Failed to parse ZEMAX WFE output file data."
+        print("Failed to parse ZEMAX WFE output file data.")
         return False
     else:
-      print "Failed to read ZEMAX WFE output file header." 
+      print("Failed to read ZEMAX WFE output file header." )
       return False
     return True

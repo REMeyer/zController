@@ -276,7 +276,7 @@ class Controller():
                                         fp_wfe_settings_filename, 
                                         flag=1, timeout=None) == 0
     except AssertionError:
-      print "FATAL: Failed to construct WFE map."
+      print("FATAL: Failed to construct WFE map.")
       os.close(fp_wfe)
       os.close(fp_wfe_settings)
       return False
@@ -285,7 +285,7 @@ class Controller():
     try:
       assert wfe_parsed.parse() == True
     except AssertionError:
-      print "FATAL: Failed to parse WFE map in Python data structures."
+      print("FATAL: Failed to parse WFE map in Python data structures.")
       os.close(fp_wfe)
       os.close(fp_wfe_settings)
       return False  
@@ -362,8 +362,8 @@ class Controller():
   
   def loadZemaxFile(self, path):
     if not os.path.exists(path):
-      print "ERROR: " + path
-      print "ERROR: Zemax file doesn't exist. Make sure it has an absolute pathname."
+      print("ERROR: ") + path
+      print("ERROR: Zemax file doesn't exist. Make sure it has an absolute pathname.")
       exit(0)
     self.zmx_link.zLoadFile(path)
     self.zmx_link.zPushLens()
@@ -393,8 +393,8 @@ class Controller():
     try:
       assert n_fields <= 12
     except AssertionError:
-      print "WARNING: Tried to insert too many fields into field table,",
-      print "entries will be truncated"
+      print("WARNING: Tried to insert too many fields into field table,")
+      print("entries will be truncated")
     self.zmx_link.zSetSystemProperty(101, n_fields)
     self.DDEToLDE()
     
@@ -488,8 +488,8 @@ class Controller():
     try:
       assert n_waves <= 24
     except AssertionError:
-      print "WARNING: Tried to insert too many wavelengths into field table,",
-      print "entries will be truncated..."
+      print("WARNING: Tried to insert too many wavelengths into field table,")
+      print("entries will be truncated...")
     self.zmx_link.zSetSystemProperty(201, n_waves)
     self.DDEToLDE()
     
